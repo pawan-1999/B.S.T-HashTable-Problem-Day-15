@@ -1,34 +1,27 @@
 using System;
-using System.Collections.Generic;
 
-namespace WordFrequencyUsingHashTables
+namespace Day_15_HashTable
 {
     class Program
     {
         static void Main(string[] args)
         {
-            WordCounter("To be or not to be");
-        }
-        public static void WordCounter(string sentence)
-        {
-            Dictionary<string, int> wordCounts = new Dictionary<string, int>();
-            string[] words = sentence.Split(' ');
-            foreach (string elements in words)
-            {
-                if (wordCounts.ContainsKey(elements))
-                {
-                    wordCounts[elements] += 1;
-                }
-                else
-                {
-                    wordCounts[elements] = 1;
-                }
-            }
-            foreach (string key in wordCounts.Keys)
-            {
-                Console.WriteLine(key+"-->"+wordCounts[key]);
-            }
+            Console.WriteLine("Welcome to Hash Table Program");
+            Console.WriteLine();
 
+
+            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
+            hash.Add("0", "to");
+            hash.Add("1", "be");
+            hash.Add("2", "or");
+            hash.Add("3", "not");
+            hash.Add("4", "to");
+            hash.Add("5", "be");
+
+            Console.WriteLine("Frequency of \'to\'  : " + hash.GetFrequencyOfWords("to"));
+            Console.WriteLine("Frequency of \'be\' : " + hash.GetFrequencyOfWords("be"));
+            Console.WriteLine("Frequency of \'or\' : " + hash.GetFrequencyOfWords("or"));
+            Console.WriteLine("Frequency of \'not\' : " + hash.GetFrequencyOfWords("not"));
         }
     }
 }
